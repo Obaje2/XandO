@@ -1,17 +1,29 @@
 # XandO
 package XandO;
 
-import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
-public class ButtonManager {
-    public static void setAction(JButton btn, int cell, XandOGame game) {
-        btn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                game.handleMove(btn, cell);
-            }
-        });
+public class Player {
+    private String symbol;
+    private ArrayList<Integer> moves = new ArrayList<>();
+
+    public Player(String symbol) {
+        this.symbol = symbol;
+    }
+
+    public String getSymbol() {
+        return symbol;
+    }
+
+    public void addMove(int move) {
+        moves.add(move);
+    }
+
+    public ArrayList<Integer> getMoves() {
+        return moves;
+    }
+
+    public void clear() {
+        moves.clear();
     }
 }
